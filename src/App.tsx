@@ -2,11 +2,11 @@
 import Card from './components/Card'
 import ModalAdd from './components/Modal'
 
-import { useSelector, } from 'react-redux'
+import { useAppSelector } from './hooks/store'
 
 function App() {
 
-  const users=useSelector((state)=>state.users)
+  const users=useAppSelector((state)=>state.users)
 
   return (
     <>
