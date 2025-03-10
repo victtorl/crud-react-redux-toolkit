@@ -9,6 +9,8 @@ function ModalAdd() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  
+
   return (
     <>
       <Button variant="success" onClick={handleShow}>
@@ -20,7 +22,7 @@ function ModalAdd() {
           <Modal.Title>Agregar canción nueva</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <FormExample/>
+            <FormExample  cerrarpropFN={handleClose} />
         </Modal.Body>
         {/* <Modal.Footer>
           <Button variant="success" onClick={handleClose}>
