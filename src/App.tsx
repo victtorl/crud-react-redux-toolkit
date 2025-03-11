@@ -3,6 +3,7 @@ import Card from './components/Card'
 import ModalAdd from './components/Modal'
 import { useSelector } from 'react-redux';
 import { RootState } from './store/postSlice';
+import ModalEdit from './components/ModalEdit';
 
 
 function App() {
@@ -30,7 +31,6 @@ function App() {
             <div className="col">
             <Card  
                   urlmusica={item.url}
-                  urlimagen="https://images.pexels.com/photos/850602/pexels-photo-850602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   estadoanimo={item.title}
                   descestado={item.description}    
                   id={item.id}              

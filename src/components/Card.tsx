@@ -2,6 +2,7 @@ import Player from "./Player";
 import { deleteItem } from "../store/postSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store/postSlice";
+import ModalEdit from "./ModalEdit";
 
 
 
@@ -14,14 +15,14 @@ function Card(props: any) {
   const id=props.id
 
   return (
-    <div className="card  bg-secondary mb-4">
-      {/* <img src={urlimagen} className="card-img-top" alt="..."/> */}
+    <div className="card  bg-secondary ">
       <button type="button" className="btn btn-danger" onClick={()=>dispatch(deleteItem(id))} >Eliminar</button>
       <div className="card-body">
         <h5 className="card-title">{estadoanimo}</h5>
         <p className="card-text">{descestado}</p>
         <Player urlvideo={urlmusica} />
       </div>
+      <ModalEdit content={props} />
     </div>
   );
 }
