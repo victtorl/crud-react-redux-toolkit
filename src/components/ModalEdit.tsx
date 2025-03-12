@@ -2,8 +2,9 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import FormularioEdit from './FormularioEdit';
-import { AppDispatch, RootState, setItem } from "../store/stageSlice";
-import { useDispatch, useSelector } from "react-redux";
+import {  setItem } from "../store/stageSlice";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from '../store/store';
 
 
 function ModalEdit(props:any) {
@@ -14,6 +15,7 @@ function ModalEdit(props:any) {
 
 
   const dispatch = useDispatch<AppDispatch>();
+  
   const sendInfoItem=() => {
     handleShow()
     //enviar al store

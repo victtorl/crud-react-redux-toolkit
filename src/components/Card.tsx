@@ -1,7 +1,7 @@
 import Player from "./Player";
 import { deleteItem } from "../store/postSlice";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/postSlice";
+import { AppDispatch } from "../store/store";
 import ModalEdit from "./ModalEdit";
 
 

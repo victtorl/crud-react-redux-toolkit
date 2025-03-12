@@ -5,21 +5,25 @@ import Form from "react-bootstrap/Form";
 // import InputGroup from 'react-bootstrap/InputGroup';
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store/postSlice";
+import { RootState } from "../store/store";
 import { addItem } from "../store/postSlice";
 import { saveState } from "../store/postSlice";
 
 function FormularioEdit(props: any) {
-  const dispatch = useDispatch<AppDispatch>();
+
 
   const cerrarbien = () => {
     props.cerrarpropFN();
   };
-
-  const items = useSelector((state: RootState) => state.items);
+  const dispatch = useDispatch();
+  const items = useSelector((state: RootState) => state.itemscard);
+  
   useEffect(() => {
     saveState(items);
   }, [items]);
+
+
+
 
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event: any) => {
@@ -53,7 +57,7 @@ function FormularioEdit(props: any) {
             required
             type="text"
             placeholder="estado de ánimo"
-            defaultValue=""
+            
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -65,6 +69,7 @@ function FormularioEdit(props: any) {
             className="form-control"
             id="exampleFormControlTextarea1"
             placeholder="descripción"
+          
           ></textarea>
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -72,7 +77,9 @@ function FormularioEdit(props: any) {
       <Row className="mb-3">
         <Form.Group as={Col} md="12" controlId="validationCustom03">
           <Form.Label>Url Yotube</Form.Label>
-          <Form.Control type="text" placeholder="url" required />
+          <Form.Control type="text" placeholder="url"
+         
+          required />
           <Form.Control.Feedback type="invalid">
             Please provide a valid city.
           </Form.Control.Feedback>

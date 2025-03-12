@@ -48,20 +48,10 @@ const itemSlice = createSlice({
   }
 });
 
+
 // Exportar acciones
 export const { addItem, updateItem, deleteItem } = itemSlice.actions;
-
+export default itemSlice.reducer
 export {saveState}
 
-// Configurar el store
-const store = configureStore({
-  reducer: {
-    items: itemSlice.reducer
-  }
-});
 
-// Definir el tipo RootState y AppDispatch
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
-export default store;

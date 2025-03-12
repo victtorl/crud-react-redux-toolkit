@@ -2,13 +2,13 @@
 import Card from './components/Card'
 import ModalAdd from './components/Modal'
 import { useSelector } from 'react-redux';
-import { RootState } from './store/postSlice';
-import ModalEdit from './components/ModalEdit';
+import { RootState } from './store/store';
+
 
 
 function App() {
 
-  const items = useSelector((state: RootState) => state.items);
+  const items = useSelector((state: RootState) => state.itemscard);
 
 
   return (
@@ -27,7 +27,7 @@ function App() {
 
 
   <div className='row '>
-  {items.map((item)=>(
+  {items.map((item:any)=>(
             <div className="col">
             <Card  
                   urlmusica={item.url}
