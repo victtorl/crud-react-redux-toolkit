@@ -5,7 +5,8 @@ import Form from "react-bootstrap/Form";
 // import InputGroup from 'react-bootstrap/InputGroup';
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../store/postSlice";
+// import { AppDispatch, RootState } from "../store/postSlice";
+import { AppDispatch,RootState } from "../store/store";
 import { addItem } from "../store/postSlice";
 import { saveState } from "../store/postSlice";
 
@@ -16,7 +17,7 @@ function FormExample(props: any) {
     props.cerrarpropFN();
   };
 
-  const items = useSelector((state: RootState) => state.items);
+  const items = useSelector((state: RootState) => state.itemscard);
   useEffect(() => {
     saveState(items);
   }, [items]);

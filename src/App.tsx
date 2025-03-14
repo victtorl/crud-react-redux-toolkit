@@ -30,9 +30,9 @@ function App() {
   {items.map((item:any)=>(
             <div className="col">
             <Card  
-                  urlmusica={item.url}
-                  estadoanimo={item.title}
-                  descestado={item.description}    
+                  url={item.url}
+                  title={item.title}
+                  description={item.description}    
                   id={item.id}              
                   />
         </div>

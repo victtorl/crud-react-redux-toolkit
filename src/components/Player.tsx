@@ -5,13 +5,13 @@ import ReactPlayer from 'react-player'
 
 function Player(props:any){
 
- const urlvideo=props.urlvideo
+//  const url=props.url
 
   return(
 
 <div className='m-0 row justify-content-center' >
 
-<ReactPlayer url={urlvideo} width={250}  height={250} />
+<ReactPlayer url={props.url} width={250}  height={250} />
 
 </div>
 

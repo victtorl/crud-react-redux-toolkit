@@ -6,21 +6,22 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
-import { addItem } from "../store/postSlice";
-import { saveState } from "../store/postSlice";
+import { updateItem } from "../store/postSlice";
+import { AppDispatch } from "../store/store";
 
 function FormularioEdit(props: any) {
 
+  const dispatch = useDispatch<AppDispatch>();
 
   const cerrarbien = () => {
     props.cerrarpropFN();
   };
-  const dispatch = useDispatch();
-  const items = useSelector((state: RootState) => state.itemscard);
+  const itemedit = useSelector((state: RootState) => state.itemedit);
   
   useEffect(() => {
-    saveState(items);
-  }, [items]);
+    console.log(itemedit[0]);
+    
+  }, [itemedit]);
 
 
 
@@ -32,7 +33,8 @@ function FormularioEdit(props: any) {
       event.stopPropagation();
     } else {
       dispatch(
-        addItem({
+        updateItem({
+          id:itemedit[0].id,
           title: event.target[0].value,
           description: event.target[1].value,
           url: event.target[2].value,
@@ -53,11 +55,12 @@ function FormularioEdit(props: any) {
       <Row className="mb-3">
         <Form.Group as={Col} md="12" controlId="validationCustom01">
           <Form.Label>Estado de ánimo</Form.Label>
+      
           <Form.Control
             required
             type="text"
             placeholder="estado de ánimo"
-            
+            defaultValue={itemedit[0].title}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -69,7 +72,7 @@ function FormularioEdit(props: any) {
             className="form-control"
             id="exampleFormControlTextarea1"
             placeholder="descripción"
-          
+            defaultValue={itemedit[0].description}
           ></textarea>
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -77,8 +80,10 @@ function FormularioEdit(props: any) {
       <Row className="mb-3">
         <Form.Group as={Col} md="12" controlId="validationCustom03">
           <Form.Label>Url Yotube</Form.Label>
-          <Form.Control type="text" placeholder="url"
-         
+          <Form.Control 
+          type="text" 
+          placeholder="url"
+          defaultValue={itemedit[0].url}
           required />
           <Form.Control.Feedback type="invalid">
             Please provide a valid city.
